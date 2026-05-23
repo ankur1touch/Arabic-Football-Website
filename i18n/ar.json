@@ -1,0 +1,88 @@
+{
+  "site": {
+    "name": "كورة",
+    "tagline": "كأس العالم 2026 — أخبار ومباريات ونتائج مباشرة"
+  },
+  "nav": {
+    "home": "الرئيسية",
+    "news": "أخبار",
+    "matches": "مباريات",
+    "tournaments": "بطولات",
+    "leagues": "الدوريات",
+    "rankings": "التصنيفات",
+    "teams": "المنتخبات",
+    "players": "اللاعبون",
+    "liveScores": "النتائج المباشرة",
+    "nationalTeams": "المنتخبات",
+    "worldCup": "كأس العالم",
+    "stats": "إحصاء",
+    "account": "حسابي"
+  },
+  "match": {
+    "live": "مباشر",
+    "upcoming": "قادمة",
+    "results": "نتائج",
+    "todayMatches": "مباريات اليوم",
+    "upcomingMatches": "مباريات قادمة"
+  },
+  "news": {
+    "readMore": "اقرأ المزيد",
+    "readNews": "اقرأ الأخبار",
+    "breaking": "عاجل",
+    "exclusive": "أخبار حصرية",
+    "topStories": "أبرز الأخبار",
+    "sources": "المصادر",
+    "watchHighlights": "مشاهدة الملخصات",
+    "allNews": "جميع الأخبار",
+    "featured": "مميز",
+    "videoNews": "أخبار الفيديو",
+    "allVideos": "كل الفيديوهات"
+  },
+  "home": {
+    "heroSubtitle": "كأس العالم 2026 — مباريات مباشرة، ترتيب المجموعات، والمنتخبات",
+    "standings": "الترتيب",
+    "championsLeague": "دوري أبطال أوروبا",
+    "noResults": "لا توجد نتائج",
+    "retry": "إعادة المحاولة",
+    "moreSources": "+14 مصدر"
+  },
+  "rankings": {
+    "worldRankings": "تصنيفات العالم",
+    "men": "رجال",
+    "women": "سيدات",
+    "points": "نقاط",
+    "gd": "فارق"
+  },
+  "tournaments": {
+    "title": "البطولات",
+    "topScorers": "هدافون",
+    "standings": "الترتيب"
+  },
+  "teams": {
+    "title": "المنتخبات",
+    "search": "بحث",
+    "squad": "التشكيلة",
+    "form": "الأداء الأخير"
+  },
+  "players": {
+    "title": "اللاعبون",
+    "search": "بحث",
+    "career": "المسيرة",
+    "bio": "نبذة"
+  },
+  "search": {
+    "title": "بحث",
+    "placeholder": "ابحث عن أخبار، منتخبات، لاعبين…",
+    "hint": "ابحث في الأخبار والمنتخبات واللاعبين والمباريات",
+    "noResults": "لا توجد نتائج",
+    "news": "أخبار",
+    "teams": "منتخبات",
+    "players": "لاعبون",
+    "matches": "مباريات"
+  },
+  "common": {
+    "loading": "جاري التحميل...",
+    "error": "حدث خطأ",
+    "vs": "ضد"
+  }
+}

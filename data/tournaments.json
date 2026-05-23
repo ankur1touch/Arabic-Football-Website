@@ -1,0 +1,98 @@
+{
+  "tournaments": [
+    {
+      "id": "ucl",
+      "name": "UEFA Champions League",
+      "nameAr": "دوري أبطال أوروبا",
+      "category": "club",
+      "season": "2025/26",
+      "standings": [
+        { "rank": 1, "team": "Real Madrid", "teamAr": "ريال مدريد", "played": 8, "won": 7, "drawn": 0, "lost": 1, "gd": 12, "points": 21 },
+        { "rank": 2, "team": "Man City", "teamAr": "مانشستر سيتي", "played": 8, "won": 6, "drawn": 1, "lost": 1, "gd": 10, "points": 19 },
+        { "rank": 3, "team": "Arsenal", "teamAr": "أرسنال", "played": 8, "won": 6, "drawn": 0, "lost": 2, "gd": 8, "points": 18 },
+        { "rank": 4, "team": "Bayern", "teamAr": "بايرن", "played": 8, "won": 5, "drawn": 2, "lost": 1, "gd": 9, "points": 17 },
+        { "rank": 5, "team": "PSG", "teamAr": "باريس سان جيرمان", "played": 8, "won": 5, "drawn": 1, "lost": 2, "gd": 6, "points": 16 }
+      ],
+      "topScorers": [
+        { "rank": 1, "player": "Haaland", "playerAr": "هالاند", "team": "Man City", "goals": 9 },
+        { "rank": 2, "player": "Mbappé", "playerAr": "مبابي", "team": "Real Madrid", "goals": 8 },
+        { "rank": 3, "player": "Kane", "playerAr": "كين", "team": "Bayern", "goals": 7 }
+      ]
+    },
+    {
+      "id": "epl",
+      "name": "Premier League",
+      "nameAr": "الدوري الإنجليزي",
+      "category": "domestic",
+      "season": "2025/26",
+      "standings": [
+        { "rank": 1, "team": "Arsenal", "teamAr": "أرسنال", "played": 36, "won": 26, "drawn": 6, "lost": 4, "gd": 40, "points": 84 },
+        { "rank": 2, "team": "Man City", "teamAr": "مانشستر سيتي", "played": 36, "won": 25, "drawn": 5, "lost": 6, "gd": 38, "points": 80 }
+      ],
+      "topScorers": [
+        { "rank": 1, "player": "Salah", "playerAr": "صلاح", "team": "Liverpool", "goals": 22 }
+      ]
+    },
+    {
+      "id": "laliga",
+      "name": "La Liga",
+      "nameAr": "الدوري الإسباني",
+      "category": "domestic",
+      "season": "2025/26",
+      "standings": [
+        { "rank": 1, "team": "Real Madrid", "teamAr": "ريال مدريد", "played": 36, "won": 28, "drawn": 4, "lost": 4, "gd": 45, "points": 88 }
+      ],
+      "topScorers": [
+        { "rank": 1, "player": "Mbappé", "playerAr": "مبابي", "team": "Real Madrid", "goals": 28 }
+      ]
+    },
+    {
+      "id": "bundesliga",
+      "name": "Bundesliga",
+      "nameAr": "البوندسليغا",
+      "category": "domestic",
+      "season": "2025/26",
+      "standings": [
+        { "rank": 1, "team": "Bayern", "teamAr": "بايرن", "played": 32, "won": 24, "drawn": 5, "lost": 3, "gd": 42, "points": 77 }
+      ],
+      "topScorers": []
+    },
+    {
+      "id": "serie-a",
+      "name": "Serie A",
+      "nameAr": "الدوري الإيطالي",
+      "category": "domestic",
+      "season": "2025/26",
+      "standings": [
+        { "rank": 1, "team": "Inter", "teamAr": "إنتر", "played": 36, "won": 27, "drawn": 4, "lost": 5, "gd": 35, "points": 85 }
+      ],
+      "topScorers": []
+    },
+    {
+      "id": "wc2026",
+      "name": "FIFA World Cup 2026",
+      "nameAr": "كأس العالم 2026",
+      "category": "international",
+      "season": "2026",
+      "featured": true,
+      "standings": [
+        { "rank": 1, "team": "Argentina", "teamAr": "الأرجنتين", "played": 0, "won": 0, "drawn": 0, "lost": 0, "gd": 0, "points": 0 },
+        { "rank": 2, "team": "France", "teamAr": "فرنسا", "played": 0, "won": 0, "drawn": 0, "lost": 0, "gd": 0, "points": 0 },
+        { "rank": 3, "team": "Brazil", "teamAr": "البرازيل", "played": 0, "won": 0, "drawn": 0, "lost": 0, "gd": 0, "points": 0 },
+        { "rank": 4, "team": "England", "teamAr": "إنجلترا", "played": 0, "won": 0, "drawn": 0, "lost": 0, "gd": 0, "points": 0 }
+      ],
+      "topScorers": [
+        { "rank": 1, "player": "Kylian Mbappé", "playerAr": "كيليان مبابي", "team": "France", "goals": 0 }
+      ]
+    },
+    {
+      "id": "afcon",
+      "name": "Africa Cup of Nations",
+      "nameAr": "كأس أمم أفريقيا",
+      "category": "international",
+      "season": "2025",
+      "standings": [],
+      "topScorers": []
+    }
+  ]
+}

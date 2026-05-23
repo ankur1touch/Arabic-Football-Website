@@ -1,0 +1,101 @@
+{
+  "teams": [
+    {
+      "id": "argentina",
+      "name": "Argentina",
+      "nameAr": "الأرجنتين",
+      "logo": "https://media.api-sports.io/football/teams/26.png",
+      "confederation": "CONMEBOL",
+      "fifaRank": 1,
+      "coach": "Lionel Scaloni",
+      "coachAr": "ليونيل سكالوني",
+      "form": ["W", "W", "D", "W", "W"],
+      "squad": [
+        { "name": "Lionel Messi", "nameAr": "ليونيل ميسي", "position": "FWD", "club": "Inter Miami" },
+        { "name": "Emiliano Martínez", "nameAr": "إميليانو مارتينيز", "position": "GK", "club": "Aston Villa" },
+        { "name": "Lautaro Martínez", "nameAr": "لاوتارو مارتينيز", "position": "FWD", "club": "Inter" }
+      ],
+      "stats": { "played": 10, "wins": 8, "draws": 1, "losses": 1, "goalsFor": 22, "goalsAgainst": 5 }
+    },
+    {
+      "id": "france",
+      "name": "France",
+      "nameAr": "فرنسا",
+      "logo": "https://media.api-sports.io/football/teams/2.png",
+      "confederation": "UEFA",
+      "fifaRank": 2,
+      "coach": "Didier Deschamps",
+      "coachAr": "ديدييه ديشامب",
+      "form": ["W", "D", "W", "W", "L"],
+      "squad": [
+        { "name": "Kylian Mbappé", "nameAr": "كيليان مبابي", "position": "FWD", "club": "Real Madrid" },
+        { "name": "Antoine Griezmann", "nameAr": "أنطوان غريزمان", "position": "FWD", "club": "Atlético" }
+      ],
+      "stats": { "played": 10, "wins": 7, "draws": 2, "losses": 1, "goalsFor": 20, "goalsAgainst": 8 }
+    },
+    {
+      "id": "spain",
+      "name": "Spain",
+      "nameAr": "إسبانيا",
+      "logo": "https://media.api-sports.io/football/teams/9.png",
+      "confederation": "UEFA",
+      "fifaRank": 3,
+      "coach": "Luis de la Fuente",
+      "coachAr": "لويس دي لا فوينتي",
+      "form": ["W", "W", "W", "D", "W"],
+      "squad": [
+        { "name": "Pedri", "nameAr": "بيدري", "position": "MID", "club": "Barcelona" },
+        { "name": "Lamine Yamal", "nameAr": "لامين يامال", "position": "FWD", "club": "Barcelona" }
+      ],
+      "stats": { "played": 10, "wins": 8, "draws": 1, "losses": 1, "goalsFor": 24, "goalsAgainst": 6 }
+    },
+    {
+      "id": "england",
+      "name": "England",
+      "nameAr": "إنجلترا",
+      "logo": "https://media.api-sports.io/football/teams/10.png",
+      "confederation": "UEFA",
+      "fifaRank": 4,
+      "coach": "Gareth Southgate",
+      "coachAr": "غاريث ساوثغيت",
+      "form": ["D", "W", "W", "L", "W"],
+      "squad": [
+        { "name": "Harry Kane", "nameAr": "هاري كين", "position": "FWD", "club": "Bayern" },
+        { "name": "Bukayo Saka", "nameAr": "بوكايو ساكا", "position": "FWD", "club": "Arsenal" }
+      ],
+      "stats": { "played": 10, "wins": 6, "draws": 2, "losses": 2, "goalsFor": 18, "goalsAgainst": 10 }
+    },
+    {
+      "id": "morocco",
+      "name": "Morocco",
+      "nameAr": "المغرب",
+      "logo": "https://media.api-sports.io/football/teams/31.png",
+      "confederation": "CAF",
+      "fifaRank": 13,
+      "coach": "Walid Regragui",
+      "coachAr": "وليد الركراكي",
+      "form": ["W", "W", "D", "W", "D"],
+      "squad": [
+        { "name": "Achraf Hakimi", "nameAr": "أشرف حكيمي", "position": "DEF", "club": "PSG" },
+        { "name": "Youssef En-Nesyri", "nameAr": "يوسف النصيري", "position": "FWD", "club": "Sevilla" }
+      ],
+      "stats": { "played": 10, "wins": 7, "draws": 2, "losses": 1, "goalsFor": 16, "goalsAgainst": 7 }
+    },
+    {
+      "id": "saudi",
+      "name": "Saudi Arabia",
+      "nameAr": "السعودية",
+      "logo": "https://media.api-sports.io/football/teams/23.png",
+      "confederation": "AFC",
+      "fifaRank": 56,
+      "coach": "Roberto Mancini",
+      "coachAr": "روبرتو مانشيني",
+      "form": ["W", "L", "W", "D", "W"],
+      "squad": [
+        { "name": "Salem Al-Dawsari", "nameAr": "سالم الدوسري", "position": "MID", "club": "Al Hilal" },
+        { "name": "Saud Abdulhamid", "nameAr": "سعود عبدالحميد", "position": "DEF", "club": "Roma" }
+      ],
+      "stats": { "played": 10, "wins": 5, "draws": 3, "losses": 2, "goalsFor": 14, "goalsAgainst": 9 }
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "site": {
+    "name": "KORA",
+    "tagline": "World Cup 2026 — Live scores, groups & national teams"
+  },
+  "nav": {
+    "home": "Home",
+    "news": "News",
+    "matches": "Matches",
+    "tournaments": "Tournaments",
+    "leagues": "Leagues",
+    "rankings": "Rankings",
+    "teams": "Teams",
+    "players": "Players",
+    "liveScores": "Live Scores",
+    "nationalTeams": "National Teams",
+    "worldCup": "World Cup",
+    "stats": "Stats",
+    "account": "Account"
+  },
+  "match": {
+    "live": "Live",
+    "upcoming": "Upcoming",
+    "results": "Results",
+    "todayMatches": "Today's Matches",
+    "upcomingMatches": "Upcoming Matches"
+  },
+  "news": {
+    "readMore": "Read More",
+    "readNews": "Read News",
+    "breaking": "Breaking",
+    "exclusive": "Exclusive News",
+    "topStories": "Top Stories",
+    "sources": "Sources",
+    "watchHighlights": "Watch Highlights",
+    "allNews": "All News",
+    "featured": "Featured",
+    "videoNews": "Video News",
+    "allVideos": "All Videos"
+  },
+  "home": {
+    "heroSubtitle": "FIFA World Cup 2026 — live matches, group standings & teams",
+    "standings": "Standings",
+    "championsLeague": "UEFA Champions League",
+    "noResults": "No results found",
+    "retry": "Retry",
+    "moreSources": "+14 more"
+  },
+  "rankings": {
+    "worldRankings": "World Rankings",
+    "men": "Men",
+    "women": "Women",
+    "points": "Pts",
+    "gd": "GD"
+  },
+  "tournaments": {
+    "title": "Tournaments",
+    "topScorers": "Top Scorers",
+    "standings": "Standings"
+  },
+  "teams": {
+    "title": "Teams",
+    "search": "Search",
+    "squad": "Squad",
+    "form": "Recent Form"
+  },
+  "players": {
+    "title": "Players",
+    "search": "Search",
+    "career": "Career",
+    "bio": "Bio"
+  },
+  "search": {
+    "title": "Search",
+    "placeholder": "Search news, teams, players…",
+    "hint": "Search for news articles, national teams, players, or matches",
+    "noResults": "No results found",
+    "news": "News",
+    "teams": "Teams",
+    "players": "Players",
+    "matches": "Matches"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "vs": "vs"
+  }
+}

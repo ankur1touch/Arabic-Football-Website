@@ -7,10 +7,26 @@ import { useAppSelector } from "@/store/hooks";
 import type { Locale } from "@/store/features/localeSlice";
 import { Skeleton } from "@/components/ui/Skeleton";
 
-export function RankingsSnippet({ locale }: { locale: Locale }) {
+import type { RankingEntry } from "@/types/ranking";
+import type { Tournament } from "@/types/tournament";
+
+export function RankingsSnippet({
+  locale,
+  initialMen = [],
+  initialTournaments = [],
+}: {
+  locale: Locale;
+  initialMen?: RankingEntry[];
+  initialTournaments?: Tournament[];
+}) {
   const t = useTranslations();
-  const { men, status: rankingsStatus } = useAppSelector((s) => s.rankings);
-  const { tournaments, status: tournamentsStatus } = useAppSelector((s) => s.tournaments);
+  const { men: storeMen, status: rankingsStatus } = useAppSelector((s) => s.rankings);
+  const { tournaments: storeTournaments, status: tournamentsStatus } = useAppSelector(
+    (s) => s.tournaments
+  );
+  const men = storeMen.length > 0 ? storeMen : initialMen;
+  const tournaments =
+    storeTournaments.length > 0 ? storeTournaments : initialTournaments;
   const wc =
     tournaments.find((t) => t.id === "wc2026") ??
     tournaments.find((t) => t.featured);
@@ -24,7 +40,9 @@ export function RankingsSnippet({ locale }: { locale: Locale }) {
         points: r.points,
       }));
 
-  const loading = rankingsStatus === "loading" || tournamentsStatus === "loading";
+  const loading =
+    (rankingsStatus === "loading" && men.length === 0) ||
+    (tournamentsStatus === "loading" && tournaments.length === 0);
 
   if (loading) {
     return <Skeleton className="h-64 w-full" />;

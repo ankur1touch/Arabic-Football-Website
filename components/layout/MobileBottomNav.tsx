@@ -7,7 +7,7 @@ import { cn } from "@/lib/cn";
 const ITEMS = [
   { href: "/", icon: Home, key: "home" },
   { href: "/matches", icon: Calendar, key: "matches" },
-  { href: "/tournaments/wc2026", icon: Trophy, key: "leagues" },
+  { href: "/world-cup", icon: Trophy, key: "worldCup" },
   { href: "/world-rankings", icon: BarChart3, key: "stats" },
   { href: "/teams", icon: User, key: "account" },
 ] as const;

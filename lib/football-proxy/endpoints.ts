@@ -16,4 +16,5 @@ export const footballEndpoints = {
   players: `${PREFIX}/players`,
   playersSquads: `${PREFIX}/players-squads`,
   headtohead: `${PREFIX}/headtohead`,
+  rankings: `${PREFIX}/rankings`,
 } as const;

@@ -7,16 +7,15 @@ import type { Match } from "@/types/match";
 
 export const revalidate = 60;
 
+const CACHE = "s-maxage=60, stale-while-revalidate=120";
+
 function matchesQuery(text: string, q: string): boolean {
   return text.toLowerCase().includes(q.toLowerCase());
 }
 
-export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
-  const q = searchParams.get("q")?.trim() ?? "";
-
+async function runSearch(q: string, request: Request) {
   if (!q) {
-    return NextResponse.json({ news: [], teams: [], players: [], matches: [] });
+    return { news: [], teams: [], players: [], matches: [] };
   }
 
   const news = readJsonData<{ articles: NewsArticle[] }>("news.json").articles.filter(
@@ -59,5 +58,24 @@ export async function GET(request: Request) {
     matches = [];
   }
 
-  return NextResponse.json({ news, teams, players, matches });
+  return { news, teams, players, matches };
+}
+
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const q = searchParams.get("q")?.trim() ?? "";
+  const result = await runSearch(q, request);
+  return NextResponse.json(result, { headers: { "Cache-Control": CACHE } });
+}
+
+export async function POST(request: Request) {
+  let q = "";
+  try {
+    const body = await request.json();
+    q = String(body?.q ?? "").trim();
+  } catch {
+    /* empty */
+  }
+  const result = await runSearch(q, request);
+  return NextResponse.json(result, { headers: { "Cache-Control": CACHE } });
 }

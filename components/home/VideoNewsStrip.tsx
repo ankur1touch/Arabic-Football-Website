@@ -10,12 +10,21 @@ import { Badge } from "@/components/ui/Badge";
 import { isVideoArticle } from "@/lib/news-media";
 import { formatDistanceToNow } from "@/lib/format";
 
-export function VideoNewsStrip({ locale }: { locale: Locale }) {
+import type { NewsArticle } from "@/types/news";
+
+export function VideoNewsStrip({
+  locale,
+  initialArticles = [],
+}: {
+  locale: Locale;
+  initialArticles?: NewsArticle[];
+}) {
   const t = useTranslations("news");
-  const { articles, status } = useAppSelector((s) => s.news);
+  const { articles: storeArticles, status } = useAppSelector((s) => s.news);
+  const articles = storeArticles.length > 0 ? storeArticles : initialArticles;
   const videos = articles.filter((a) => isVideoArticle(a));
 
-  if (status !== "succeeded" || videos.length === 0) return null;
+  if ((status !== "succeeded" && articles.length === 0) || videos.length === 0) return null;
 
   return (
     <section className="mb-8">

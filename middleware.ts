@@ -4,5 +4,6 @@ import { routing } from "./i18n/routing";
 export default createMiddleware(routing);
 
 export const config = {
-  matcher: ["/", "/(ar|en)/:path*", "/((?!api|_next|_vercel|.*\\..*).*)"],
+  // Only run locale middleware on app routes — never on _next static assets
+  matcher: ["/", "/(ar|en)/:path*"],
 };

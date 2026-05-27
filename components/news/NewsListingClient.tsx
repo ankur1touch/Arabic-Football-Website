@@ -15,12 +15,24 @@ import { isVideoArticle } from "@/lib/news-media";
 
 export type NewsFilter = NewsCategory | "all" | "videos";
 
-export function NewsListingClient({ locale }: { locale: Locale }) {
-  const t = useTranslations("home");
+export function NewsListingClient({
+  locale,
+  defaultCategory = "all",
+}: {
+  locale: Locale;
+  defaultCategory?: NewsFilter;
+}) {
+  const t = useTranslations("news");
+  const tHome = useTranslations("home");
   const dispatch = useAppDispatch();
   const searchParams = useSearchParams();
   const { articles, status } = useAppSelector((s) => s.news);
-  const initial = searchParams.get("filter") === "videos" ? "videos" : "all";
+  const initial =
+    searchParams.get("filter") === "videos"
+      ? "videos"
+      : defaultCategory !== "all"
+        ? defaultCategory
+        : "all";
   const [category, setCategory] = useState<NewsFilter>(initial);
 
   useEffect(() => {
@@ -40,30 +52,36 @@ export function NewsListingClient({ locale }: { locale: Locale }) {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8">
-      <h1 className="mb-6 text-3xl font-bold text-slate-100">
-        {locale === "ar" ? "الأخبار" : "News"}
-      </h1>
+      <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
+        <h1 className="font-display text-3xl text-white">{t("allNews")}</h1>
+        {status === "succeeded" && (
+          <p className="text-sm text-slate-400">
+            {filtered.length}{" "}
+            {locale === "ar" ? "مقال" : "articles"}
+          </p>
+        )}
+      </div>
       <NewsFilters active={category} onChange={setCategory} locale={locale} />
 
       {status === "loading" && (
-        <div className="mt-8 grid gap-4 md:grid-cols-2">
-          {[1, 2, 3, 4].map((i) => (
-            <Skeleton key={i} className="h-48" />
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {Array.from({ length: 9 }).map((_, i) => (
+            <Skeleton key={i} className="h-56" />
           ))}
         </div>
       )}
 
       {status === "failed" && (
         <div className="mt-8 text-center">
-          <Button onClick={() => dispatch(fetchNews())}>{t("retry")}</Button>
+          <Button onClick={() => dispatch(fetchNews())}>{tHome("retry")}</Button>
         </div>
       )}
 
       {status === "succeeded" && filtered.length === 0 && (
-        <p className="mt-8 text-center text-slate-400">{t("noResults")}</p>
+        <p className="mt-8 text-center text-slate-400">{tHome("noResults")}</p>
       )}
 
-      <div className="mt-8 grid gap-4 md:grid-cols-2">
+      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {filtered.map((article) => (
           <NewsCard key={article.id} article={article} locale={locale} />
         ))}

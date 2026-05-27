@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import axiosClient from "@/lib/client";
 import type { RankingEntry } from "@/types/ranking";
 
@@ -24,7 +24,17 @@ export const fetchRankings = createAsyncThunk("rankings/fetchAll", async () => {
 const rankingsSlice = createSlice({
   name: "rankings",
   initialState,
-  reducers: {},
+  reducers: {
+    hydrateRankings: (
+      state,
+      action: PayloadAction<{ men: RankingEntry[]; women: RankingEntry[] }>
+    ) => {
+      state.men = action.payload.men;
+      state.women = action.payload.women;
+      state.status = "succeeded";
+      state.error = null;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchRankings.pending, (state) => {
@@ -43,4 +53,5 @@ const rankingsSlice = createSlice({
   },
 });
 
+export const { hydrateRankings } = rankingsSlice.actions;
 export default rankingsSlice.reducer;

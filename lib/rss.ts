@@ -2,17 +2,26 @@ import Parser from "rss-parser";
 import type { NewsArticle } from "@/types/news";
 import { translateBatch } from "./translate";
 
-const parser = new Parser();
+const parser = new Parser({
+  customFields: {
+    item: [
+      ["media:content", "mediaContent", { keepArray: true }],
+      ["media:thumbnail", "mediaThumbnail", { keepArray: true }],
+    ],
+  },
+});
 
 export const FEEDS = [
   "https://feeds.bbci.co.uk/sport/football/rss.xml",
   "https://www.skysports.com/rss/12040",
+  "https://www.skysports.com/rss/12041",
   "https://www.goal.com/feeds/en/news",
   "https://www.espn.com/espn/rss/soccer/news",
   "https://www.theguardian.com/football/rss",
   "https://www.fifa.com/fifaplus/en/rss",
   "https://www.90min.com/posts.rss",
   "https://e00-marca.uecdn.es/rss/en/index.xml",
+  "https://www.marca.com/rss/futbol.xml",
 ];
 
 function deduplicateByTitle<T extends { title?: string }>(items: T[]): T[] {
@@ -25,22 +34,56 @@ function deduplicateByTitle<T extends { title?: string }>(items: T[]): T[] {
   });
 }
 
+function pickMediaUrl(entry: unknown): string | undefined {
+  if (!entry || typeof entry !== "object") return undefined;
+  const media = entry as { $?: { url?: string }; url?: string };
+  return media.$?.url ?? media.url;
+}
+
+function upgradeImageUrl(url: string): string {
+  return url
+    .replace(
+      /ichef\.bbci\.co\.uk\/ace\/standard\/\d+\//,
+      "ichef.bbci.co.uk/ace/standard/976/"
+    )
+    .replace(/width=\d+/, "width=1200");
+}
+
 function extractImageUrl(item: Parser.Item): string | undefined {
   const enclosure = item.enclosure;
   if (enclosure?.url && enclosure.type?.startsWith("image")) {
-    return enclosure.url;
+    return upgradeImageUrl(enclosure.url);
   }
 
-  const media = item as Parser.Item & {
+  const extended = item as Parser.Item & {
+    mediaThumbnail?: unknown[];
+    mediaContent?: unknown[];
+  };
+
+  for (const thumb of extended.mediaThumbnail ?? []) {
+    const url = pickMediaUrl(thumb);
+    if (url) return upgradeImageUrl(url);
+  }
+
+  for (const media of extended.mediaContent ?? []) {
+    const url = pickMediaUrl(media);
+    if (url) return upgradeImageUrl(url);
+  }
+
+  const legacy = item as Parser.Item & {
     "media:content"?: { $?: { url?: string } };
     mediaContent?: { $?: { url?: string } };
   };
-  const mediaUrl = media["media:content"]?.$?.url ?? media.mediaContent?.$?.url;
-  if (mediaUrl) return mediaUrl;
+  const legacyUrl =
+    legacy["media:content"]?.$?.url ??
+    (legacy.mediaContent && !Array.isArray(legacy.mediaContent)
+      ? legacy.mediaContent.$?.url
+      : undefined);
+  if (legacyUrl) return upgradeImageUrl(legacyUrl);
 
-  const html = item.content ?? item.summary ?? "";
+  const html = item.content ?? item.summary ?? item.contentSnippet ?? "";
   const match = html.match(/<img[^>]+src=["']([^"']+)["']/i);
-  return match?.[1];
+  return match?.[1] ? upgradeImageUrl(match[1]) : undefined;
 }
 
 export async function aggregateFeeds(): Promise<
@@ -69,7 +112,7 @@ export async function aggregateFeeds(): Promise<
     (a, b) => new Date(b.pubDate ?? 0).getTime() - new Date(a.pubDate ?? 0).getTime()
   );
 
-  const batch = sorted.slice(0, 50).map((item) => ({
+  const batch = sorted.slice(0, 80).map((item) => ({
     titleEn: item.title ?? "",
     excerptEn: item.contentSnippet ?? item.summary ?? "",
     source: item.creator ?? "RSS",

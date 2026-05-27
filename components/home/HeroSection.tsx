@@ -9,12 +9,26 @@ import { NewsThumbnail } from "@/components/ui/NewsThumbnail";
 import { useAppSelector } from "@/store/hooks";
 import type { Locale } from "@/store/features/localeSlice";
 import { isVideoArticle } from "@/lib/news-media";
+import type { NewsArticle } from "@/types/news";
+import type { Match } from "@/types/match";
 import { filterTodayMatches, formatKickoffLabel } from "@/lib/match-dates";
 
-export function HeroSection({ locale }: { locale: Locale }) {
+export function HeroSection({
+  locale,
+  initialArticles = [],
+  initialMatches = [],
+  imagePriority = false,
+}: {
+  locale: Locale;
+  initialArticles?: NewsArticle[];
+  initialMatches?: Match[];
+  imagePriority?: boolean;
+}) {
   const t = useTranslations();
-  const matches = useAppSelector((s) => s.matches.matches);
-  const articles = useAppSelector((s) => s.news.articles);
+  const storeMatches = useAppSelector((s) => s.matches.matches);
+  const storeArticles = useAppSelector((s) => s.news.articles);
+  const matches = storeMatches.length > 0 ? storeMatches : initialMatches;
+  const articles = storeArticles.length > 0 ? storeArticles : initialArticles;
   const todayMatches = filterTodayMatches(matches, 3);
 
   const featuredNews =
@@ -93,7 +107,7 @@ export function HeroSection({ locale }: { locale: Locale }) {
                 article={featuredNews}
                 className="h-48 lg:h-52"
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                priority
+                priority={imagePriority}
               />
               <div className="bg-gradient-to-br from-kora-green/10 to-transparent p-6 pb-4">
                 <div className="mb-3 flex flex-wrap gap-2">

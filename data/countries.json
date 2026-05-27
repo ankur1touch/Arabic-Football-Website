@@ -1,0 +1,58 @@
+[
+  {
+    "id": "sa",
+    "nameEn": "Saudi Arabia",
+    "nameAr": "السعودية",
+    "teamId": 23,
+    "logo": "https://media.api-sports.io/football/teams/23.png",
+    "keywords": ["saudi", "saudi arabia", "السعودية", "green falcons", "manchini"]
+  },
+  {
+    "id": "ma",
+    "nameEn": "Morocco",
+    "nameAr": "المغرب",
+    "teamId": 31,
+    "logo": "https://media.api-sports.io/football/teams/31.png",
+    "keywords": ["morocco", "المغرب", "atlas lions", "hakimi"]
+  },
+  {
+    "id": "ir",
+    "nameEn": "Iran",
+    "nameAr": "إيران",
+    "teamId": 22,
+    "logo": "https://media.api-sports.io/football/teams/22.png",
+    "keywords": ["iran", "إيران", "team melli"]
+  },
+  {
+    "id": "qa",
+    "nameEn": "Qatar",
+    "nameAr": "قطر",
+    "teamId": 1569,
+    "logo": "https://media.api-sports.io/football/teams/1569.png",
+    "keywords": ["qatar", "قطر", "maroons"]
+  },
+  {
+    "id": "tn",
+    "nameEn": "Tunisia",
+    "nameAr": "تونس",
+    "teamId": 28,
+    "logo": "https://media.api-sports.io/football/teams/28.png",
+    "keywords": ["tunisia", "تونس", "eagles of carthage"]
+  },
+  {
+    "id": "jo",
+    "nameEn": "Jordan",
+    "nameAr": "الأردن",
+    "teamId": 1548,
+    "logo": "https://media.api-sports.io/football/teams/1548.png",
+    "keywords": ["jordan", "الأردن", "nashama"]
+  },
+  {
+    "id": "sn",
+    "nameEn": "Senegal",
+    "nameAr": "السنغال",
+    "teamId": 13,
+    "logo": "https://media.api-sports.io/football/teams/13.png",
+    "keywords": ["senegal", "السنغال", "lions of teranga", "mane"]
+  }
+]

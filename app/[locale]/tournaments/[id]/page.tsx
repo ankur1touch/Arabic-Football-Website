@@ -1,6 +1,6 @@
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { Link } from "@/i18n/routing";
+import { Link, redirect } from "@/i18n/routing";
 import { readJsonData } from "@/lib/data";
 import { fetchWcStandings } from "@/lib/football-proxy/services";
 import { withMockFallback, mockTournaments } from "@/lib/football-proxy/fallback";
@@ -23,6 +23,11 @@ async function loadTournament(id: string): Promise<Tournament | undefined> {
 export default async function TournamentDetailPage({ params }: Props) {
   const { locale, id } = await params;
   setRequestLocale(locale);
+
+  if (id === "wc2026") {
+    redirect({ href: "/world-cup", locale });
+  }
+
   const isAr = locale === "ar";
 
   const tournament = await loadTournament(id);

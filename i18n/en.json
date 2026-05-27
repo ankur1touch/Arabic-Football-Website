@@ -10,13 +10,23 @@
     "tournaments": "Tournaments",
     "leagues": "Leagues",
     "rankings": "Rankings",
+    "standings": "Standings",
     "teams": "Teams",
     "players": "Players",
     "liveScores": "Live Scores",
     "nationalTeams": "National Teams",
     "worldCup": "World Cup",
+    "transfers": "Transfers",
+    "search": "Search",
     "stats": "Stats",
     "account": "Account"
+  },
+  "ticker": {
+    "label": "Breaking",
+    "default1": "World Cup 2026 — follow every match on Kora",
+    "default2": "Latest transfer news and national team updates",
+    "default3": "Live scores, standings and FIFA rankings",
+    "default4": "Arab & Muslim-majority teams at the World Cup"
   },
   "match": {
     "live": "Live",
@@ -53,6 +63,80 @@
     "points": "Pts",
     "gd": "GD"
   },
+  "standings": {
+    "title": "Standings",
+    "table": "League Table",
+    "topScorers": "Top Scorers",
+    "team": "Team",
+    "played": "P",
+    "points": "Pts",
+    "gd": "GD",
+    "group": "Group",
+    "noData": "No standings data available"
+  },
+  "worldCup": {
+    "title": "FIFA World Cup 2026",
+    "subtitle": "USA, Mexico & Canada — fixtures, groups, teams and news",
+    "fixtures": "Fixtures",
+    "standings": "Standings",
+    "teams": "Teams",
+    "hostCities": "Host Cities",
+    "news": "World Cup News"
+  },
+  "country": {
+    "hubSubtitle": "National team hub — news, squad and fixtures",
+    "viewTeam": "View team profile",
+    "news": "Latest News",
+    "noNews": "No news for this country yet",
+    "notFound": "Country not found"
+  },
+  "fanZone": {
+    "title": "Fan Zone",
+    "wcTitle": "World Cup Hub",
+    "wcDesc": "Fixtures, groups and host cities for WC 2026",
+    "countriesTitle": "National Teams",
+    "countriesDesc": "Explore Arab & Muslim-majority teams at the World Cup",
+    "communityTitle": "Latest News",
+    "communityDesc": "Breaking stories, transfers and match analysis"
+  },
+  "footer": {
+    "football": "Football",
+    "tournaments": "Tournaments",
+    "news": "News",
+    "site": "Site",
+    "about": "About",
+    "contact": "Contact",
+    "privacy": "Privacy",
+    "advertise": "Advertise",
+    "tagline": "Your bilingual Arabic football portal",
+    "newsletterTitle": "Stay in the game",
+    "newsletterDesc": "Get World Cup updates and top stories in your inbox.",
+    "newsletterPlaceholder": "your@email.com",
+    "newsletterBtn": "Subscribe",
+    "newsletterThanks": "Thanks! We'll keep you posted."
+  },
+  "static": {
+    "about": {
+      "title": "About Kora",
+      "p1": "Kora (كورة) is a bilingual Arabic and English football portal focused on FIFA World Cup 2026, live scores, national teams, and global football news.",
+      "p2": "We aggregate trusted RSS sources and live data via a secure server-side football API proxy."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "p1": "For editorial, partnerships, or technical enquiries, reach out to our team.",
+      "email": "Email"
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "p1": "We respect your privacy. This site uses essential cookies for locale preferences and analytics may be added in production.",
+      "p2": "We do not sell personal data. Contact us to request data removal."
+    },
+    "advertise": {
+      "title": "Advertise with Kora",
+      "p1": "Reach football fans across the Arab world and English-speaking audiences with display and sponsored content.",
+      "p2": "Contact us for media kit and rate card."
+    }
+  },
   "tournaments": {
     "title": "Tournaments",
     "topScorers": "Top Scorers",
@@ -83,6 +167,8 @@
   "common": {
     "loading": "Loading...",
     "error": "Something went wrong",
+    "retry": "Retry",
+    "noResults": "No results found",
     "vs": "vs"
   }
 }

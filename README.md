@@ -28,8 +28,15 @@ Copy `.env.local.example` to `.env.local` and add optional keys:
 
 Football data uses your **proxy** (`FOOTBALL_PROXY_BASE_URL`). Without a reachable proxy, `USE_MOCK_FALLBACK=true` uses mock JSON in `data/`.
 
-See [docs/postman-football-proxy.md](docs/postman-football-proxy.md) for endpoint mapping.
+## AWS Amplify
 
-## Structure
+1. Connect this repo in [AWS Amplify Console](https://console.aws.amazon.com/amplify/) (branch: `main`).
+2. Amplify reads `amplify.yml` automatically — use **Next.js - SSR** (Web Compute) if prompted.
+3. Set environment variables in Amplify → **Hosting → Environment variables** (copy from `.env.local.example`):
+   - `NEXT_PUBLIC_SITE_URL` — your Amplify app URL (e.g. `https://main.d1234.amplifyapp.com`)
+   - `FOOTBALL_PROXY_BASE_URL`, `FOOTBALL_WC_LEAGUE_ID`, `FOOTBALL_WC_SEASON`
+   - `USE_MOCK_FALLBACK=true` (recommended until proxy is reachable from AWS)
+   - `DISABLE_RSS=false` (optional: `true` for faster cold builds)
+4. Deploy — build runs `npm ci` + `npm run build`.
 
 See `kora-football-documentation.md` for full architecture and file map.

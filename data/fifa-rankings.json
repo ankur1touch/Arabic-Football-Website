@@ -1,0 +1,24 @@
+{
+  "men": [
+    { "rank": 1, "country": "Argentina", "countryAr": "الأرجنتين", "flag": "🇦🇷", "points": 1885, "change": 0 },
+    { "rank": 2, "country": "France", "countryAr": "فرنسا", "flag": "🇫🇷", "points": 1850, "change": 0 },
+    { "rank": 3, "country": "Spain", "countryAr": "إسبانيا", "flag": "🇪🇸", "points": 1830, "change": 0 },
+    { "rank": 4, "country": "England", "countryAr": "إنجلترا", "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "points": 1800, "change": 0 },
+    { "rank": 5, "country": "Brazil", "countryAr": "البرازيل", "flag": "🇧🇷", "points": 1780, "change": 0 },
+    { "rank": 6, "country": "Portugal", "countryAr": "البرتغال", "flag": "🇵🇹", "points": 1760, "change": 0 },
+    { "rank": 7, "country": "Netherlands", "countryAr": "هولندا", "flag": "🇳🇱", "points": 1740, "change": 0 },
+    { "rank": 8, "country": "Belgium", "countryAr": "بلجيكا", "flag": "🇧🇪", "points": 1720, "change": 1 },
+    { "rank": 9, "country": "Italy", "countryAr": "إيطاليا", "flag": "🇮🇹", "points": 1700, "change": -1 },
+    { "rank": 10, "country": "Germany", "countryAr": "ألمانيا", "flag": "🇩🇪", "points": 1680, "change": 0 },
+    { "rank": 11, "country": "Uruguay", "countryAr": "أوروغواي", "flag": "🇺🇾", "points": 1660, "change": 0 },
+    { "rank": 12, "country": "Colombia", "countryAr": "كولومبيا", "flag": "🇨🇴", "points": 1640, "change": 0 },
+    { "rank": 13, "country": "Morocco", "countryAr": "المغرب", "flag": "🇲🇦", "points": 1620, "change": 0 },
+    { "rank": 14, "country": "USA", "countryAr": "الولايات المتحدة", "flag": "🇺🇸", "points": 1600, "change": 0 },
+    { "rank": 15, "country": "Mexico", "countryAr": "المكسيك", "flag": "🇲🇽", "points": 1580, "change": 0 },
+    { "rank": 16, "country": "Japan", "countryAr": "اليابان", "flag": "🇯🇵", "points": 1560, "change": 0 },
+    { "rank": 17, "country": "Switzerland", "countryAr": "سويسرا", "flag": "🇨🇭", "points": 1540, "change": 0 },
+    { "rank": 18, "country": "Senegal", "countryAr": "السنغال", "flag": "🇸🇳", "points": 1520, "change": 0 },
+    { "rank": 19, "country": "Iran", "countryAr": "إيران", "flag": "🇮🇷", "points": 1500, "change": 0 },
+    { "rank": 20, "country": "Denmark", "countryAr": "الدنمارك", "flag": "🇩🇰", "points": 1480, "change": 0 }
+  ]
+}

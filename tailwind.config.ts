@@ -22,6 +22,8 @@ const config: Config = {
       fontFamily: {
         arabic: ["var(--font-noto-arabic)", "system-ui", "sans-serif"],
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        display: ["var(--font-bebas)", "var(--font-cairo)", "system-ui", "sans-serif"],
+        cairo: ["var(--font-cairo)", "var(--font-noto-arabic)", "system-ui", "sans-serif"],
       },
     },
   },

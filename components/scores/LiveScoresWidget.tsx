@@ -9,12 +9,21 @@ import { Badge } from "@/components/ui/Badge";
 import { Skeleton } from "@/components/ui/Skeleton";
 import { filterNextUpcoming, formatKickoffLabel } from "@/lib/match-dates";
 
-export function UpcomingMatchesWidget({ locale }: { locale: Locale }) {
+import type { Match } from "@/types/match";
+
+export function UpcomingMatchesWidget({
+  locale,
+  initialMatches = [],
+}: {
+  locale: Locale;
+  initialMatches?: Match[];
+}) {
   const t = useTranslations("match");
-  const { matches, status } = useAppSelector((s) => s.matches);
+  const { matches: storeMatches, status } = useAppSelector((s) => s.matches);
+  const matches = storeMatches.length > 0 ? storeMatches : initialMatches;
   const upcoming = filterNextUpcoming(matches, 3);
 
-  if (status === "loading") {
+  if (status === "loading" && matches.length === 0) {
     return <Skeleton className="h-48 w-full" />;
   }
 

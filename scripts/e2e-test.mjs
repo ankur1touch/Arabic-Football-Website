@@ -36,6 +36,18 @@ const PAGES = [
   "/en/live-scores",
   "/en/news",
   "/en/search",
+  "/en/transfers",
+  "/ar/transfers",
+  "/en/standings",
+  "/ar/standings",
+  "/en/world-cup",
+  "/ar/world-cup",
+  "/en/country/sa",
+  "/ar/country/ma",
+  "/en/about",
+  "/en/contact",
+  "/en/privacy",
+  "/en/advertise",
   "/ar/tournaments",
   "/ar/tournaments/wc2026",
   "/en/tournaments/wc2026",
@@ -53,11 +65,19 @@ const API_POST = [
   "/api/players",
   "/api/news",
   "/api/rankings",
+  "/api/fifa-rankings",
   "/api/football/rounds",
   "/api/football/leagues",
 ];
 
-const API_GET = ["/api/live-scores", "/api/search?q=real"];
+const API_GET = [
+  "/api/live-scores",
+  "/api/search?q=real",
+  "/api/countries",
+  "/rss.xml",
+  "/sitemap.xml",
+  "/robots.txt",
+];
 
 async function check(name, url, options = {}) {
   const start = Date.now();
@@ -221,6 +241,21 @@ async function main() {
   );
   results.push(
     await check(`PAGE /en/players/${playerId}`, `/en/players/${playerId}`)
+  );
+
+  results.push(
+    await check(`API POST /api/search`, `/api/search`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ q: "morocco" }),
+    })
+  );
+  results.push(
+    await check(`API POST /api/country/sa`, `/api/country/sa`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: "{}",
+    })
   );
 
   const passed = results.filter((r) => r.ok).length;

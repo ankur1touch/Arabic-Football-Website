@@ -2,14 +2,20 @@
   "name": "kora-football",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "next dev",
     "dev:turbo": "next dev --turbopack",
     "dev:clean": "node -e \"require('fs').rmSync('.next',{recursive:true,force:true})\" && next dev",
+    "dev:3012": "node -e \"require('fs').rmSync('.next',{recursive:true,force:true})\" && next dev -p 3012",
     "build": "next build",
     "build:start": "node -e \"require('fs').rmSync('.next',{recursive:true,force:true})\" && next build && next start",
     "start": "next start",
-    "start:clean": "npm run build && next start",
+    "start:3012": "next start -p 3012",
+    "start:clean": "node -e \"require('fs').rmSync('.next',{recursive:true,force:true})\" && next build && next start",
+    "start:clean:3012": "node -e \"require('fs').rmSync('.next',{recursive:true,force:true})\" && next build && next start -p 3012",
     "lint": "next lint",
     "test:e2e": "node scripts/e2e-test.mjs"
   },

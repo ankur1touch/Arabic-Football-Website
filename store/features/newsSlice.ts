@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import axiosClient from "@/lib/client";
 import type { NewsArticle } from "@/types/news";
 
@@ -22,7 +22,13 @@ export const fetchNews = createAsyncThunk("news/fetchAll", async () => {
 const newsSlice = createSlice({
   name: "news",
   initialState,
-  reducers: {},
+  reducers: {
+    hydrateNews: (state, action: PayloadAction<NewsArticle[]>) => {
+      state.articles = action.payload;
+      state.status = "succeeded";
+      state.error = null;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchNews.pending, (state) => {
@@ -40,4 +46,5 @@ const newsSlice = createSlice({
   },
 });
 
+export const { hydrateNews } = newsSlice.actions;
 export default newsSlice.reducer;

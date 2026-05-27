@@ -20,6 +20,8 @@ export function Tabs({ tabs, active, onChange, className }: TabsProps) {
       {tabs.map((tab) => (
         <button
           key={tab.id}
+          type="button"
+          suppressHydrationWarning
           onClick={() => onChange(tab.id)}
           className={cn(
             "rounded-lg px-4 py-2 text-sm font-medium transition-colors",

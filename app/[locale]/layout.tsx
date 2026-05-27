@@ -7,8 +7,9 @@ import type { Metadata } from "next";
 import { StoreProvider } from "@/store/StoreProvider";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
-import { LocaleHtmlAttributes } from "@/components/layout/LocaleHtmlAttributes";
+import { BreakingTicker } from "@/components/layout/BreakingTicker";
+import { MobileBottomNavLazy } from "@/components/layout/MobileBottomNavLazy";
+import { localeFontVariables } from "@/lib/fonts";
 
 type Props = {
   children: React.ReactNode;
@@ -38,12 +39,12 @@ export default async function LocaleLayout({ children, params }: Props) {
   setRequestLocale(locale);
   const messages = await getMessages();
   const dir = locale === "ar" ? "rtl" : "ltr";
+  const loc = locale as "ar" | "en";
 
   return (
     <NextIntlClientProvider messages={messages}>
-      <LocaleHtmlAttributes locale={locale as "ar" | "en"} />
-      <StoreProvider locale={locale as "ar" | "en"}>
-        <LocaleShell locale={locale as "ar" | "en"} dir={dir}>
+      <StoreProvider locale={loc}>
+        <LocaleShell locale={loc} dir={dir}>
           {children}
         </LocaleShell>
       </StoreProvider>
@@ -64,12 +65,13 @@ function LocaleShell({
     <div
       dir={dir}
       lang={locale}
-      className={`flex min-h-screen flex-col bg-kora-dark pb-20 md:pb-0 ${locale === "en" ? "font-sans" : "font-arabic"}`}
+      className={`flex min-h-screen flex-col bg-kora-dark pb-20 md:pb-0 ${localeFontVariables(locale)} ${locale === "en" ? "font-sans" : "font-arabic"}`}
     >
       <Header locale={locale} />
+      <BreakingTicker locale={locale} />
       <main className="flex-1 bg-kora-dark">{children}</main>
       <Footer locale={locale} />
-      <MobileBottomNav />
+      <MobileBottomNavLazy />
     </div>
   );
 }

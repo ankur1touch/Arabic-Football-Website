@@ -5,7 +5,11 @@ export function flattenStandings(groups: ApiStandingsLeague[]): StandingRow[] {
   const rows: StandingRow[] = [];
 
   for (const block of groups) {
-    for (const group of block.standings) {
+    const standingsGroups = block?.standings;
+    if (!Array.isArray(standingsGroups)) continue;
+
+    for (const group of standingsGroups) {
+      if (!Array.isArray(group)) continue;
       for (const entry of group) {
         rows.push({
           rank: entry.rank,

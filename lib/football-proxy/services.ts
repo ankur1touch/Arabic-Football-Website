@@ -22,6 +22,8 @@ import type { FixtureDetail } from "@/types/fixture-detail";
 import type { PlayerDetailResponse } from "@/types/player";
 import type { TeamDetailResponse } from "@/types/team";
 import type { TournamentRound } from "@/types/world-cup";
+import type { FifaRanking } from "@/types/ranking";
+import { readJsonData } from "@/lib/data";
 
 function wcParams(extra?: Record<string, string | number>) {
   return {
@@ -263,4 +265,34 @@ export async function fetchTeamDetail(teamId: number): Promise<TeamDetailRespons
   const standings = flattenStandings(Array.isArray(groups) ? groups : []);
 
   return mapTeamDetailResponse(teamRaw, squadRaw, fixturesRaw, resultsRaw, standings);
+}
+
+interface RawFifaRanking {
+  rank: number;
+  team: { name: string; logo?: string };
+  points: number;
+  previousRank?: number;
+}
+
+export async function fetchFifaRankings(): Promise<FifaRanking[]> {
+  try {
+    const raw = await proxyGet(footballEndpoints.rankings, wcParams());
+    const items = unwrapResponse<RawFifaRanking[]>(raw);
+    if (Array.isArray(items) && items.length >= 5) {
+      return items.slice(0, 20).map((r, i) => ({
+        rank: r.rank ?? i + 1,
+        country: r.team.name,
+        countryAr: r.team.name,
+        flag: "⚽",
+        logo: r.team.logo,
+        points: r.points,
+        change: r.previousRank ? r.previousRank - (r.rank ?? i + 1) : 0,
+      }));
+    }
+  } catch {
+    /* fallback */
+  }
+
+  const staticData = readJsonData<{ men: FifaRanking[] }>("fifa-rankings.json");
+  return staticData.men ?? [];
 }

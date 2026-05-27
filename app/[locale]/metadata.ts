@@ -5,6 +5,7 @@ export function getLocaleMetadata(locale: string): Metadata {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
   return {
+    metadataBase: new URL(baseUrl),
     title: isAr ? "كورة — بوابة كرة القدم العربية" : "KORA — Arabic Football Portal",
     description: isAr
       ? "أحدث أخبار كرة القدم العالمية بالعربية والإنجليزية"

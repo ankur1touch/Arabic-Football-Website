@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { Play } from "lucide-react";
 import { cn } from "@/lib/cn";
 import {
@@ -11,6 +10,7 @@ import {
   resolveNewsImage,
 } from "@/lib/news-media";
 import type { NewsArticle } from "@/types/news";
+import { SafeImage } from "@/components/ui/SafeImage";
 
 export function NewsThumbnail({
   article,
@@ -42,20 +42,21 @@ export function NewsThumbnail({
         className
       )}
     >
-      <Image
+      <SafeImage
+        key={src}
         src={src}
         alt=""
         fill
         sizes={sizes}
         priority={priority}
-        unoptimized={logoStyle}
-        onError={() => {
-          if (src !== DEFAULT_NEWS_IMAGE) setSrc(DEFAULT_NEWS_IMAGE);
-        }}
         className={cn(
           "transition duration-300 group-hover:scale-105",
           logoStyle ? "object-contain p-3" : "object-cover"
         )}
+        fallbackClassName={logoStyle ? "bg-gradient-to-br from-kora-mid to-kora-dark" : "bg-kora-mid"}
+        onError={() => {
+          if (src !== DEFAULT_NEWS_IMAGE) setSrc(DEFAULT_NEWS_IMAGE);
+        }}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-kora-dark/60 via-transparent to-transparent pointer-events-none" />
       {isVideo && (

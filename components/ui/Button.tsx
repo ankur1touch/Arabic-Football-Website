@@ -15,6 +15,7 @@ export function Button({
 }: ButtonProps) {
   return (
     <button
+      suppressHydrationWarning
       className={cn(
         "inline-flex items-center justify-center rounded-xl font-medium transition-colors",
         size === "sm" && "px-3 py-1.5 text-sm",

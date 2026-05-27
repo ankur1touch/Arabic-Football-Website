@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import axiosClient from "@/lib/client";
 import type { Tournament } from "@/types/tournament";
 
@@ -22,7 +22,13 @@ export const fetchTournaments = createAsyncThunk("tournaments/fetchAll", async (
 const tournamentsSlice = createSlice({
   name: "tournaments",
   initialState,
-  reducers: {},
+  reducers: {
+    hydrateTournaments: (state, action: PayloadAction<Tournament[]>) => {
+      state.tournaments = action.payload;
+      state.status = "succeeded";
+      state.error = null;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchTournaments.pending, (state) => {
@@ -40,4 +46,5 @@ const tournamentsSlice = createSlice({
   },
 });
 
+export const { hydrateTournaments } = tournamentsSlice.actions;
 export default tournamentsSlice.reducer;

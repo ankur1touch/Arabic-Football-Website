@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import axiosClient from "@/lib/client";
 import type { Match } from "@/types/match";
 
@@ -27,7 +27,13 @@ export const fetchLiveScores = createAsyncThunk("matches/fetchLive", async () =>
 const matchesSlice = createSlice({
   name: "matches",
   initialState,
-  reducers: {},
+  reducers: {
+    hydrateMatches: (state, action: PayloadAction<Match[]>) => {
+      state.matches = action.payload;
+      state.status = "succeeded";
+      state.error = null;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchMatches.pending, (state) => {
@@ -49,4 +55,5 @@ const matchesSlice = createSlice({
   },
 });
 
+export const { hydrateMatches } = matchesSlice.actions;
 export default matchesSlice.reducer;

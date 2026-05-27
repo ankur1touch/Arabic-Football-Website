@@ -5,11 +5,20 @@ import { Link } from "@/i18n/routing";
 import { useAppSelector } from "@/store/hooks";
 import type { Locale } from "@/store/features/localeSlice";
 
-export function TournamentSpotlight({ locale }: { locale: Locale }) {
+import type { Tournament } from "@/types/tournament";
+
+export function TournamentSpotlight({
+  locale,
+  initialTournaments = [],
+}: {
+  locale: Locale;
+  initialTournaments?: Tournament[];
+}) {
   const t = useTranslations("tournaments");
-  const featured = useAppSelector((s) =>
-    s.tournaments.tournaments.find((t) => t.featured)
-  );
+  const storeTournaments = useAppSelector((s) => s.tournaments.tournaments);
+  const tournaments =
+    storeTournaments.length > 0 ? storeTournaments : initialTournaments;
+  const featured = tournaments.find((t) => t.featured);
 
   if (!featured) return null;
 
